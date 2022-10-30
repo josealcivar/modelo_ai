@@ -25,6 +25,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
     @action(detail=True)
     def modelo(self, request, pk=None):
         queryset = Project.objects.all()
+        print("ingresó aqui")
         print(self.funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda"))
         serializer = ProjectSerializer(queryset, many=True)
         return Response(serializer.data)
