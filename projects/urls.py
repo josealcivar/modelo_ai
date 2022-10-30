@@ -3,11 +3,15 @@ from django.urls import path
 from .api import ProjectViewSet
 from projects import views
 
-router = routers.DefaultRouter()
+router = routers.SimpleRouter()
 
 router.register('api/projects/modelo/', ProjectViewSet.as_view({
     'get':'list',
 }), 'projects') 
+
+# router.register('api/projects/modelo/', ProjectViewSet.as_view({
+#     'get':'list',
+# }), 'projects') 
 # router.register('api/projects/modelo/', views.funcion_modelo, 'projects') 
 
 # router.register('api/projects/modelos/', ProjectViewSet.as_view({
