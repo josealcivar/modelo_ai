@@ -2,7 +2,7 @@ from projects.serializers import ProjectSerializer
 from .models import Project
 from rest_framework import viewsets, permissions
 from rest_framework.response import Response
-#from ml import modelo_mixto
+from rest_framework.decorators import action
 import os
 from django.conf import settings
 # Para leer el modelo
@@ -22,7 +22,8 @@ class ProjectViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.AllowAny]
     serializer_class = ProjectSerializer
 
-    def getModelo(self, request):
+    @action(detail=True)
+    def modelo(self, request, pk=None):
         queryset = Project.objects.all()
         self.funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda")
         serializer = ProjectSerializer(queryset, many=True)
