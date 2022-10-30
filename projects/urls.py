@@ -5,9 +5,7 @@ from projects import views
 
 router = routers.SimpleRouter()
 
-router.register('api/projects/modelo/', ProjectViewSet.as_view({
-    'get':'list',
-}), 'projects') 
+router.register('api/projects/modelo/', ProjectViewSet, 'projects') 
 
 # router.register('api/projects/modelo/', ProjectViewSet.as_view({
 #     'get':'list',
