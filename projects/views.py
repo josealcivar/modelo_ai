@@ -9,7 +9,7 @@ from tensorflow.keras.models import load_model
 MODEL_FILE=settings.MODEL_ROOT
 IMAGENES_FILES=settings.MEDIA_FILES
 modelo = load_model(MODEL_FILE+'/mix_model_low.h5')
-ruta_imagenes = IMAGENES_FILES+'/'
+ruta_imagenes = IMAGENES_FILES
 
 
 def resultModelo(self, request):
