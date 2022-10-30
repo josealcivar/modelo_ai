@@ -22,7 +22,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.AllowAny]
     serializer_class = ProjectSerializer
 
-    def list(self, request):
+    def getModelo(self, request):
         queryset = Project.objects.all()
         self.funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda")
         serializer = ProjectSerializer(queryset, many=True)
