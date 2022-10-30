@@ -5,7 +5,7 @@ from projects import views
 
 router = routers.DefaultRouter()
 
-router.register('api/projects/modelo', views, 'projects') 
+router.register('api/projects/modelo', views.funcion_modelo, 'projects') 
 
 # router.register('api/projects/modelos', ProjectViewSet.as_view({
 #     'get':'getModelo'
