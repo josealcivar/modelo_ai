@@ -1,6 +1,7 @@
 from projects.serializers import ProjectSerializer
 from .models import Project
 from rest_framework import viewsets, permissions
+from rest_framework.response import Response
 #from ml import modelo_mixto
 import os
 from django.conf import settings
@@ -20,6 +21,12 @@ class ProjectViewSet(viewsets.ModelViewSet):
     queryset = Project.objects.all()
     permission_classes = [permissions.AllowAny]
     serializer_class = ProjectSerializer
+
+    def list(self, request):
+        queryset = Project.objects.all()
+        self.funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda")
+        serializer = ProjectSerializer(queryset, many=True)
+        return Response(serializer.data)
 
     def funcion_modelo(modelo,ruta_imagenes,anios_local,zona,tipo_tienda):
         import random
@@ -242,7 +249,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
         X = np.array(X)
 
         preds = modelo.predict([X, imagen])
-         ventas_max = 11282 
+        #ventas_max = 11282 
         preds=2200
         return preds*11282
         
