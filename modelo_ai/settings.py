@@ -129,6 +129,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+MEDIA_FILES = os.path.join(BASE_DIR, 'static/imagenes/tienda_1')
+MODEL_ROOT = os.path.join(BASE_DIR, "ml/")
 
 # Following settings only make sense on production and may break development environments.
 if not DEBUG:
