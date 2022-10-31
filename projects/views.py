@@ -1,3 +1,4 @@
+from tkinter import EXCEPTION
 from django.shortcuts import render
 from django.http import JsonResponse
 # Create your views here.
@@ -14,11 +15,14 @@ ruta_imagenes = IMAGENES_FILES
 
 def resultModelo(self, request):
     # queryset = Project.objects.all()
-    print("ingresó aqui")
-    print(self.funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda"))
-    data=self.funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda")
-    # serializer = ProjectSerializer(queryset, many=True)
-    return Response(data)
+    try:
+        print("ingresó aqui")
+        print(self.funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda"))
+        data=self.funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda")
+        # serializer = ProjectSerializer(queryset, many=True)
+        return Response(data)
+    except Exception as e:
+        print(e)
 
 def funcion_modelo(modelo,ruta_imagenes,anios_local,zona,tipo_tienda):
     import random
