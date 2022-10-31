@@ -13,7 +13,7 @@ ruta_imagenes = IMAGENES_FILES
 
 
 def resultModelo(self, request):
-    # queryset = Project.objects.all()
+    # queryset = Project.objects.all()gi
     print("ingresó aqui")
     print(self.funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda"))
     data=self.funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda")
@@ -59,7 +59,7 @@ def funcion_modelo(modelo,ruta_imagenes,anios_local,zona,tipo_tienda):
     def im_augmentation(value):
         size=256,256
         r = random.randrange(0, 7)
-
+        print("paso por aquí im_augmentation")
         if r == 0:
         # Rotacion
             return value.rotate(270)
@@ -153,6 +153,7 @@ def funcion_modelo(modelo,ruta_imagenes,anios_local,zona,tipo_tienda):
 
 
     def get_concat_h_resize(im1, im2,resample=Image.BICUBIC, resize_big_image=True):
+        print("paso por aquí get_concat")
         if im1.height == im2.height:
             _im1 = im1
             _im2 = im2
@@ -169,6 +170,7 @@ def funcion_modelo(modelo,ruta_imagenes,anios_local,zona,tipo_tienda):
             return dst
 
     def get_concat_v_resize(im1, im2, resample=Image.BICUBIC, resize_big_image=True):
+        print("paso por aquí contat_resize")
         if im1.width == im2.width:
             _im1 = im1
             _im2 = im2
@@ -185,6 +187,7 @@ def funcion_modelo(modelo,ruta_imagenes,anios_local,zona,tipo_tienda):
         return dst
 
     def cat_zona(value):
+        print("paso por aquí zona")
         if value == "Norte":
             return 1
         elif value == "Sur":
@@ -196,6 +199,7 @@ def funcion_modelo(modelo,ruta_imagenes,anios_local,zona,tipo_tienda):
 
 
     def cat_tipo_tienda(value):
+        print("paso por aquí Tienda")
         if value == "Bodega de Abarrotes":
             return 0
         elif value == "Delicatessen":
@@ -217,6 +221,7 @@ def funcion_modelo(modelo,ruta_imagenes,anios_local,zona,tipo_tienda):
     ['Bodega de Abarrotes', 'Delicatessen', 'Frigorífico','Frutería / Verdulería', 'Micromercado', 'Panadería', 'Tienda']
     ['Norte', 'Sur', 'Valles']
 
+    print("paso por las imagenes")
     collage = collage_images(ruta_imagenes)
 
     collage.save(ruta_imagenes+"/" +str(1)+".png")
