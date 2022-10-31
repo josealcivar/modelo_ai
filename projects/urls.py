@@ -22,7 +22,7 @@ router = routers.DefaultRouter()
 
 urlpatterns = [
      path('api/projects/modelo', ProjectViewSet, name='projects'),
-     path('api/imagenes', views.resultModelo)
+     path('api/imagenes', views.resultModelo, name="modelo")
 ]
 
 
