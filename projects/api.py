@@ -28,7 +28,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
     
     def list(self, request, pk=None):
         print("ingresó aqui list")
-        print(self.funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda"))
+        #print(self.funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda"))
         serializer = ProjectSerializer(self.queryset, many=True)
         return Response(serializer.data)
 
