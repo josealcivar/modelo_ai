@@ -80,6 +80,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'modelo_ai.wsgi.application'
 
+SECURE_SSL_REDIRECT = False
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
