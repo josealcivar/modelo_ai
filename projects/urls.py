@@ -3,7 +3,7 @@ from django.urls import path
 from .api import ProjectViewSet
 from projects import views
 
-router = routers.SimpleRouter()
+router = routers.DefaultRouter()
 
 router.register('api/projects/modelo', ProjectViewSet, 'projects') 
 
