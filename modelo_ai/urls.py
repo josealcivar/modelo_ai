@@ -20,5 +20,5 @@ from projects import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('projects.urls')),
-    path('imagenes/', views.resultModelo)
+    
 ]

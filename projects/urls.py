@@ -5,7 +5,7 @@ from projects import views
 
 router = routers.DefaultRouter()
 
-router.register('api/projects/modelo', ProjectViewSet, 'projects') 
+# router.register('api/projects/modelo', ProjectViewSet, 'projects') 
 
 # router.register('api/projects/modelo/', ProjectViewSet.as_view({
 #     'get':'list',
@@ -18,11 +18,12 @@ router.register('api/projects/modelo', ProjectViewSet, 'projects')
 
 
 
-urlpatterns = router.urls
+# urlpatterns = router.urls
 
-# urlpatterns = [
-#      path('modelo/', getModelo, name='modelo')
-# ]
+urlpatterns = [
+     path('api/projects/modelo', ProjectViewSet, name='modelo'),
+     path('api/imagenes/', views.resultModelo)
+]
 
 
 
