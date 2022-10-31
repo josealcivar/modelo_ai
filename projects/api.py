@@ -9,16 +9,13 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 # Para leer el modelo
 # import pickle
-from tensorflow.keras.models import load_model
 
-MODEL_FILE=settings.MODEL_ROOT
-IMAGENES_FILES=settings.MEDIA_FILES
-modelo = load_model(MODEL_FILE+'/mix_model_low.h5')
-ruta_imagenes = IMAGENES_FILES
+
+
 class ProjectViewSet(viewsets.ModelViewSet):
     print("imprime resultado")
     # print(MODEL_FILE.mix_model_low.h5)
-    print(IMAGENES_FILES+'/')
+    # print(IMAGENES_FILES+'/')
     # print(funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda"))
     # funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda")
     queryset = Project.objects.all()
@@ -28,13 +25,13 @@ class ProjectViewSet(viewsets.ModelViewSet):
     
     def list(self, request, pk=None):
         print("ingresó aqui list")
-        #print(self.funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda"))
+        #print(self.funcion_modelo(2,"Norte","Tienda"))
         serializer = ProjectSerializer(self.queryset, many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
         print("ingresó aqui retrive")
-        print(self.funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda"))
+        #print(self.funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda"))
         item = get_object_or_404(self.request, pk=pk)
         serializer = ProjectSerializer(item)
         return Response(serializer.data)
@@ -42,12 +39,17 @@ class ProjectViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['get'])
     def items_not_done(self, request):
         print("ingresó aqui items_not_done")
-        print(self.funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda"))
+        #print(self.funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda"))
         projects = Project.objects.filter(done=False).count()
 
         return Response(projects)
 
-    def funcion_modelo(modelo,ruta_imagenes,anios_local,zona,tipo_tienda):
+    def funcion_modelo(anios_local,zona,tipo_tienda):
+        from tensorflow.keras.models import load_model
+        MODEL_FILE=settings.MODEL_ROOT
+        IMAGENES_FILES=settings.MEDIA_FILES
+        modelo = load_model(MODEL_FILE+'/mix_model_low.h5')
+        ruta_imagenes = IMAGENES_FILES
         import random
         import os
         import glob
