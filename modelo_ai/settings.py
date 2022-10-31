@@ -130,7 +130,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 MEDIA_FILES = os.path.join(BASE_DIR, 'static/imagenes/tienda_1')
-MODEL_ROOT = os.path.join(BASE_DIR, "ml/")
+MODEL_ROOT = os.path.join(BASE_DIR, 'ml/')
 
 # Following settings only make sense on production and may break development environments.
 if not DEBUG:

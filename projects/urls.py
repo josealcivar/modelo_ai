@@ -21,7 +21,7 @@ router = routers.DefaultRouter()
 # urlpatterns = router.urls
 
 urlpatterns = [
-     path('api/projects/modelo', ProjectViewSet, name='projects'),
+     path('api/projects/modelo', ProjectViewSet.as_view(), name='projects'),
      path('api/imagenes', views.resultModelo, name="modelo")
 ]
 
