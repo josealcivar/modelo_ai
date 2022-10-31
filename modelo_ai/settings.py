@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
 # DEBUG = True
 
 # DEBUG = 'RENDER' not in os.environ
-DEGUB = True
+DEBUG = True
 
 ALLOWED_HOSTS = ['35.175.190.243:8001']
 
