@@ -14,11 +14,12 @@ ruta_imagenes = IMAGENES_FILES
 
 def resultModelo(self, request):
     # queryset = Project.objects.all()gi
-    print("ingresó aqui")
-    print(self.funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda"))
-    data=self.funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda")
-    # serializer = ProjectSerializer(queryset, many=True)
-    return HttpResponse(data)
+    if request.method == 'GET':
+        print("ingresó aqui")
+        print(self.funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda"))
+        data=self.funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda")
+        # serializer = ProjectSerializer(queryset, many=True)
+        return HttpResponse(data)
 
 def funcion_modelo(modelo,ruta_imagenes,anios_local,zona,tipo_tienda):
     import random
