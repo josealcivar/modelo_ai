@@ -171,7 +171,7 @@ def funcion_modelo(modelo,ruta_imagenes,anios_local,zona,tipo_tienda):
             return dst
 
     def get_concat_v_resize(im1, im2, resample=Image.BICUBIC, resize_big_image=True):
-        print("paso por aquí contat_resize")
+        # print("paso por aquí contat_resize")
         if im1.width == im2.width:
             _im1 = im1
             _im2 = im2
