@@ -43,7 +43,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
         data=funcion_modelo(modelo, ruta_imagenes,int(anios_local),str(zona),str(tipo_tienda))
         serializer = ProjectSerializer(self.queryset, many=True)
         print(type(data))
-        result=json.dumps({'monto': data})
+        result=json.dumps(data.tolist())
         print(result)
         return Response(result)
 
