@@ -7,7 +7,7 @@ from rest_framework.decorators import action
 import os
 from django.conf import settings
 from django.shortcuts import get_object_or_404
-# Para leer el modelo
+# Para leer el modelo 
 import json
 from tensorflow.keras.models import load_model
 from projects.views import funcion_modelo
@@ -43,9 +43,9 @@ class ProjectViewSet(viewsets.ModelViewSet):
         data=funcion_modelo(modelo, ruta_imagenes,int(anios_local),str(zona),str(tipo_tienda))
         serializer = ProjectSerializer(self.queryset, many=True)
         print(type(data))
-        result=json.loads(data)
+        result=json.dumps({'monto': data})
         print(result)
-        return Response(data)
+        return Response(result)
 
     def retrieve(self, request, pk=None):
         print("ingresó aqui retrive")
