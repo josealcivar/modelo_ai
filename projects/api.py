@@ -8,7 +8,7 @@ import os
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 # Para leer el modelo
-# import pickle
+import json
 from tensorflow.keras.models import load_model
 from projects.views import funcion_modelo
 
@@ -42,6 +42,9 @@ class ProjectViewSet(viewsets.ModelViewSet):
         print(funcion_modelo(modelo, ruta_imagenes,int(anios_local),str(zona),str(tipo_tienda)))
         data=funcion_modelo(modelo, ruta_imagenes,int(anios_local),str(zona),str(tipo_tienda))
         serializer = ProjectSerializer(self.queryset, many=True)
+        print(type(data))
+        result=json.loads(data)
+        print(result)
         return Response(data)
 
     def retrieve(self, request, pk=None):
