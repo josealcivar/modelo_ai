@@ -34,7 +34,9 @@ class ProjectViewSet(viewsets.ModelViewSet):
         anios_local = request.query_params.get('anios_local')
         zona= request.query_params.get('zona')
         tipo_tienda = request.query_params.get('tipo_tienda')
-
+        print(anios_local)
+        print(zona)
+        print(tipo_tienda)
     
         #print(self.funcion_modelo(2,"Norte","Tienda"))
         print(funcion_modelo(modelo, ruta_imagenes,anios_local,zona,tipo_tienda))
