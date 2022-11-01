@@ -165,13 +165,13 @@ def funcion_modelo(modelo,ruta_imagenes,anios_local,zona,tipo_tienda):
         else:
             _im1 = im1
             _im2 = im2.resize((int(im2.width * im1.height / im2.height), im1.height), resample=resample)
-            dst = Image.new('RGB', (_im1.width + _im2.width, _im1.height))
-            dst.paste(_im1, (0, 0))
-            dst.paste(_im2, (_im1.width, 0))
-            return dst
+        dst = Image.new('RGB', (_im1.width + _im2.width, _im1.height))
+        dst.paste(_im1, (0, 0))
+        dst.paste(_im2, (_im1.width, 0))
+        return dst
 
     def get_concat_v_resize(im1, im2, resample=Image.BICUBIC, resize_big_image=True):
-        # print("paso por aquí contat_resize")
+        print("paso por aquí contat_resize")
         if im1.width == im2.width:
             _im1 = im1
             _im2 = im2
@@ -219,8 +219,8 @@ def funcion_modelo(modelo,ruta_imagenes,anios_local,zona,tipo_tienda):
             return 7
 
 
-    ['Bodega de Abarrotes', 'Delicatessen', 'Frigorífico','Frutería / Verdulería', 'Micromercado', 'Panadería', 'Tienda']
-    ['Norte', 'Sur', 'Valles']
+    # ['Bodega de Abarrotes', 'Delicatessen', 'Frigorífico','Frutería / Verdulería', 'Micromercado', 'Panadería', 'Tienda']
+    # ['Norte', 'Sur', 'Valles']
 
     print("paso por las imagenes")
     collage = collage_images(ruta_imagenes)
@@ -248,6 +248,6 @@ def funcion_modelo(modelo,ruta_imagenes,anios_local,zona,tipo_tienda):
 
     preds = modelo.predict([X, imagen])
     #ventas_max = 11282 
-    preds=2200
+    # preds=2200
     return preds*11282
     
