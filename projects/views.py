@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 # Create your views here.
 import os
 from django.conf import settings
@@ -18,7 +18,7 @@ def resultModelo(self, request):
     print(self.funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda"))
     data=self.funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda")
     # serializer = ProjectSerializer(queryset, many=True)
-    return Response(data)
+    return HttpResponse(data)
 
 def funcion_modelo(modelo,ruta_imagenes,anios_local,zona,tipo_tienda):
     import random

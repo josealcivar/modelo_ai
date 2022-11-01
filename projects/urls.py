@@ -1,7 +1,7 @@
 from rest_framework import routers
 from django.urls import path
 from .api import ProjectViewSet
-from projects import views
+from projects.views import resultModelo
 
 router = routers.DefaultRouter()
 
@@ -24,7 +24,7 @@ urlpatterns = [
      path('api/projects/modelo', ProjectViewSet.as_view({
         'get':'list'
      }), name='projects'),
-     path('api/imagenes', views.resultModelo, name="modelo")
+     path('api/imagenes', resultModelo, name='modelo')
 ]
 
 
