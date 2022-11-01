@@ -40,8 +40,9 @@ class ProjectViewSet(viewsets.ModelViewSet):
     
         #print(self.funcion_modelo(2,"Norte","Tienda"))
         print(funcion_modelo(modelo, ruta_imagenes,int(anios_local),str(zona),str(tipo_tienda)))
+        data=funcion_modelo(modelo, ruta_imagenes,int(anios_local),str(zona),str(tipo_tienda))
         serializer = ProjectSerializer(self.queryset, many=True)
-        return Response(serializer.data)
+        return Response(data)
 
     def retrieve(self, request, pk=None):
         print("ingresó aqui retrive")
