@@ -28,11 +28,16 @@ class ProjectViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.AllowAny]
     serializer_class = ProjectSerializer
 
-    
+    #anios_local,zona,tipo_tienda    
     def list(self, request, pk=None):
         print("ingresó aqui list")
+        anios_local = request.query_params.get('anios_local')
+        zona= request.query_params.get('zona')
+        tipo_tienda = request.query_params.get('tipo_tienda')
+
+    
         #print(self.funcion_modelo(2,"Norte","Tienda"))
-        print(funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda"))
+        print(funcion_modelo(modelo, ruta_imagenes,anios_local,zona,tipo_tienda))
         serializer = ProjectSerializer(self.queryset, many=True)
         return Response(serializer.data)
 
