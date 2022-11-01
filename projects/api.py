@@ -39,7 +39,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
         print(tipo_tienda)
     
         #print(self.funcion_modelo(2,"Norte","Tienda"))
-        print(funcion_modelo(modelo, ruta_imagenes,anios_local,zona,tipo_tienda))
+        print(funcion_modelo(modelo, ruta_imagenes,int(anios_local),str(zona),str(tipo_tienda)))
         serializer = ProjectSerializer(self.queryset, many=True)
         return Response(serializer.data)
 
