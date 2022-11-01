@@ -21,7 +21,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
     print("imprime resultado")
     # print(MODEL_FILE.mix_model_low.h5)
     # print(IMAGENES_FILES+'/')
-    print(funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda"))
+    # print(funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda"))
     # print(funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda"))
     # funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda")
     queryset = Project.objects.all()
@@ -32,6 +32,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
     def list(self, request, pk=None):
         print("ingresó aqui list")
         #print(self.funcion_modelo(2,"Norte","Tienda"))
+        print(funcion_modelo(modelo, ruta_imagenes,2,"Norte","Tienda"))
         serializer = ProjectSerializer(self.queryset, many=True)
         return Response(serializer.data)
 
